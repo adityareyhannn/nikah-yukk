@@ -1,10 +1,8 @@
 # 💍 Nikah Yukk — Wedding Organizer Landing Page
 
-Landing page profesional untuk **Nikah Yukk**, wedding organizer berbasis di Surabaya.
+Landing page profesional untuk **Nikah Yukk**, wedding organizer.
 
 🌐 **Live Site:** [https://USERNAME.github.io/nikah-yukk](https://USERNAME.github.io/nikah-yukk)
-> Ganti `USERNAME` dengan username GitHub kamu setelah di-deploy.
-
 ---
 
 ## ✨ Fitur
