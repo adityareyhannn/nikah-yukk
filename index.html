@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nikah Yukk – Wedding Organizer</title>
+<title>Nikah Yukk – Wedding Organizer Surabaya</title>
 <meta name="description" content="Nikah Yukk adalah wedding organizer profesional di Surabaya. Wujudkan pernikahan impianmu bersama kami.">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -73,11 +73,28 @@
   .nav-cta:hover { background: var(--primary-dark); }
 
   /* DARK MODE TOGGLE */
-  .theme-toggle { width: 44px; height: 24px; border-radius: 12px; background: var(--border-strong); border: none; cursor: pointer; position: relative; transition: background .3s; flex-shrink: 0; }
-  .theme-toggle::after { content: ''; position: absolute; top: 3px; left: 3px; width: 18px; height: 18px; border-radius: 50%; background: var(--white); transition: transform .3s, background .3s; }
-  [data-theme="dark"] .theme-toggle { background: var(--primary); }
-  [data-theme="dark"] .theme-toggle::after { transform: translateX(20px); }
-  .toggle-icon { font-size: 14px; pointer-events: none; }
+  .theme-toggle {
+    width: 56px; height: 28px; border-radius: 14px;
+    background: #FFD580; border: none; cursor: pointer;
+    position: relative; transition: background .4s; flex-shrink: 0;
+    display: flex; align-items: center; padding: 0 4px;
+  }
+  [data-theme="dark"] .theme-toggle { background: #3B3B6B; }
+  .theme-toggle::after {
+    content: ''; position: absolute; top: 4px; left: 4px;
+    width: 20px; height: 20px; border-radius: 50%;
+    background: #fff; transition: transform .4s cubic-bezier(.34,1.56,.64,1);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+  }
+  [data-theme="dark"] .theme-toggle::after { transform: translateX(28px); background: #C8D0F0; }
+  .toggle-sun, .toggle-moon {
+    position: absolute; font-size: 13px; transition: opacity .3s;
+    pointer-events: none; line-height: 1;
+  }
+  .toggle-sun { left: 6px; opacity: 1; }
+  .toggle-moon { right: 6px; opacity: 0.4; }
+  [data-theme="dark"] .toggle-sun { opacity: 0.4; }
+  [data-theme="dark"] .toggle-moon { opacity: 1; }
 
   /* HAMBURGER */
   .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
@@ -362,7 +379,10 @@
     <li><a href="#testimonials">Testimoni</a></li>
   </ul>
   <div class="nav-right">
-    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode"></button>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+      <span class="toggle-sun">☀️</span>
+      <span class="toggle-moon">🌙</span>
+    </button>
     <a href="#contact" class="nav-cta">Konsultasi Gratis</a>
     <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
       <span></span><span></span><span></span>
