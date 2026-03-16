@@ -2,7 +2,7 @@
 
 Landing page profesional untuk **Nikah Yukk**, wedding organizer.
 
-🌐 **Live Site:** [https://USERNAME.github.io/nikah-yukk](https://USERNAME.github.io/nikah-yukk)
+🌐 **Live Site:** [https://USERNAME.github.io/nikah-yukk](https://adityareyhannn.github.io/nikah-yukk)
 ---
 
 ## ✨ Fitur
