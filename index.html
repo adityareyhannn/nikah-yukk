@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nikah Yukk – Wedding Organizer Surabaya</title>
+<title>Nikah Yukk – Wedding Organizer</title>
 <meta name="description" content="Nikah Yukk adalah wedding organizer profesional di Surabaya. Wujudkan pernikahan impianmu bersama kami.">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -279,6 +279,74 @@
     .footer-top { grid-template-columns: 1fr; gap: 28px; }
     .hero-badge { font-size: 10px; letter-spacing: 2px; }
   }
+
+  /* SCROLL ANIMATIONS */
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .reveal-right {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+  .reveal-delay-5 { transition-delay: 0.5s; }
+
+  /* GALLERY SLIDER */
+  #gallery { background: var(--bg2); text-align: center; }
+  .gallery-slider-wrap { max-width: 1000px; margin: 48px auto 0; position: relative; }
+  .gallery-slider { overflow: hidden; border-radius: 4px; }
+  .gallery-track { display: flex; transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+  .gallery-slide { min-width: calc(33.333% - 8px); margin-right: 12px; border-radius: 4px; overflow: hidden; flex-shrink: 0; }
+  .gallery-slide .gal-box { height: 280px; cursor: pointer; }
+  .gallery-slide .gal-box:hover .gal-overlay { opacity: 1; }
+  .slider-controls { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 24px; }
+  .slider-btn { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--border-strong); background: var(--card-bg); color: var(--primary); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all .2s; font-size: 18px; }
+  .slider-btn:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
+  .slider-dots { display: flex; gap: 8px; }
+  .slider-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--border-strong); border: none; cursor: pointer; transition: all .2s; padding: 0; }
+  .slider-dot.active { background: var(--primary); width: 24px; border-radius: 4px; }
+
+  /* LIGHTBOX */
+  .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.88); z-index: 999; align-items: center; justify-content: center; }
+  .lightbox.open { display: flex; }
+  .lightbox-inner { position: relative; max-width: 700px; width: 90%; }
+  .lightbox-img { width: 100%; aspect-ratio: 4/3; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 64px; }
+  .lightbox-close { position: absolute; top: -40px; right: 0; background: none; border: none; color: #fff; font-size: 28px; cursor: pointer; opacity: 0.7; transition: opacity .2s; }
+  .lightbox-close:hover { opacity: 1; }
+  .lightbox-nav { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.15); border: none; color: #fff; width: 44px; height: 44px; border-radius: 50%; cursor: pointer; font-size: 20px; display: flex; align-items: center; justify-content: center; transition: background .2s; }
+  .lightbox-nav:hover { background: var(--primary); }
+  .lightbox-prev { left: -56px; }
+  .lightbox-next { right: -56px; }
+  .lightbox-caption { text-align: center; color: rgba(255,255,255,0.6); font-size: 13px; margin-top: 14px; letter-spacing: 1px; }
+  @media (max-width: 768px) {
+    .gallery-slide { min-width: calc(100% - 0px); margin-right: 12px; }
+    .gallery-slide .gal-box { height: 220px; }
+    .lightbox-prev { left: -8px; }
+    .lightbox-next { right: -8px; }
+  }
 </style>
 </head>
 <body>
@@ -333,7 +401,7 @@
 <!-- ABOUT -->
 <section id="about">
   <div class="about-inner">
-    <div class="about-img">
+    <div class="about-img reveal-left">
       <div class="about-img-main">
         <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
           <path d="M40 12C40 12 28 20 28 32C28 38 34 42 40 42C46 42 52 38 52 32C52 20 40 12 40 12Z" stroke="#C4748A" stroke-width="1.5" fill="none"/>
@@ -343,7 +411,7 @@
       </div>
       <div class="about-accent"></div>
     </div>
-    <div class="about-text">
+    <div class="about-text reveal-right">
       <p class="section-tag">Tentang Kami</p>
       <h2>Pengalaman <em>Terbaik</em><br>di Hari Istimewa</h2>
       <p>Nikah Yukk adalah wedding organizer profesional yang berpengalaman lebih dari 8 tahun dalam merencanakan dan mengeksekusi pernikahan yang tak terlupakan di Surabaya dan sekitarnya.</p>
@@ -360,37 +428,37 @@
 
 <!-- SERVICES -->
 <section id="services">
-  <p class="section-tag">Layanan Kami</p>
-  <h2 class="section-title">Semua yang Kamu <em>Butuhkan</em></h2>
-  <div class="section-line"></div>
-  <p class="section-desc">Kami menyediakan layanan lengkap dari awal hingga akhir untuk memastikan hari pernikahanmu berjalan sempurna.</p>
+  <p class="section-tag reveal">Layanan Kami</p>
+  <h2 class="section-title reveal">Semua yang Kamu <em>Butuhkan</em></h2>
+  <div class="section-line reveal"></div>
+  <p class="section-desc reveal">Kami menyediakan layanan lengkap dari awal hingga akhir untuk memastikan hari pernikahanmu berjalan sempurna.</p>
   <div class="services-grid">
-    <div class="service-card">
+    <div class="service-card reveal reveal-delay-1">
       <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" stroke="#C4748A" stroke-width="1.5" stroke-linecap="round"/></svg></div>
       <h3>Perencanaan Lengkap</h3>
       <p>Dari konsultasi pertama hingga resepsi selesai. Kami merencanakan setiap detail dengan cermat sesuai keinginanmu.</p>
     </div>
-    <div class="service-card">
+    <div class="service-card reveal reveal-delay-2">
       <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke="#C4748A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
       <h3>Dekorasi Premium</h3>
       <p>Tim dekorasi kami akan menciptakan suasana yang menawan dan sesuai dengan tema pernikahan impianmu.</p>
     </div>
-    <div class="service-card">
+    <div class="service-card reveal reveal-delay-3">
       <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#C4748A" stroke-width="1.5"/><path d="M12 6v6l4 2" stroke="#C4748A" stroke-width="1.5" stroke-linecap="round"/></svg></div>
       <h3>Koordinasi Hari H</h3>
       <p>Tim kami hadir dan memastikan semua berjalan tepat waktu dan sesuai rencana pada hari pernikahanmu.</p>
     </div>
-    <div class="service-card">
+    <div class="service-card reveal reveal-delay-1">
       <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" stroke="#C4748A" stroke-width="1.5"/><polyline points="9,22 9,12 15,12 15,22" stroke="#C4748A" stroke-width="1.5"/></svg></div>
       <h3>Pemilihan Venue</h3>
       <p>Kami membantu menemukan venue terbaik yang sesuai dengan konsep, kapasitas tamu, dan anggaranmu.</p>
     </div>
-    <div class="service-card">
+    <div class="service-card reveal reveal-delay-2">
       <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" stroke="#C4748A" stroke-width="1.5"/></svg></div>
       <h3>Catering & Kuliner</h3>
       <p>Bekerjasama dengan katering terbaik untuk memuaskan selera ratusan tamu undanganmu.</p>
     </div>
-    <div class="service-card">
+    <div class="service-card reveal reveal-delay-3">
       <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" stroke="#C4748A" stroke-width="1.5"/><circle cx="8.5" cy="8.5" r="1.5" stroke="#C4748A" stroke-width="1.5"/><polyline points="21,15 16,10 5,21" stroke="#C4748A" stroke-width="1.5"/></svg></div>
       <h3>Dokumentasi</h3>
       <p>Abadikan setiap momen berharga dengan tim fotografer dan videografer profesional kami.</p>
@@ -449,36 +517,57 @@
 
 <!-- GALLERY -->
 <section id="gallery">
-  <p class="section-tag">Portofolio</p>
-  <h2 class="section-title">Momen <em>Indah</em> yang Telah Kami Ciptakan</h2>
-  <div class="section-line"></div>
-  <div class="gallery-grid">
-    <div class="gal-item"><div class="gal-box gal-1"><div class="gal-overlay"></div><span class="gal-icon">💒</span></div></div>
-    <div class="gal-item"><div class="gal-box gal-2"><div class="gal-overlay"></div><span class="gal-icon">💍</span></div></div>
-    <div class="gal-item"><div class="gal-box gal-3"><div class="gal-overlay"></div><span class="gal-icon">🌸</span></div></div>
-    <div class="gal-item"><div class="gal-box gal-4"><div class="gal-overlay"></div><span class="gal-icon">🎊</span></div></div>
-    <div class="gal-item"><div class="gal-box gal-5"><div class="gal-overlay"></div><span class="gal-icon">✨</span></div></div>
+  <p class="section-tag reveal">Portofolio</p>
+  <h2 class="section-title reveal">Momen <em>Indah</em> yang Telah Kami Ciptakan</h2>
+  <div class="section-line reveal"></div>
+  <div class="gallery-slider-wrap reveal">
+    <div class="gallery-slider">
+      <div class="gallery-track" id="galleryTrack">
+        <div class="gallery-slide"><div class="gal-box gal-1" onclick="openLightbox(0)"><div class="gal-overlay"></div><span class="gal-icon">💒</span></div></div>
+        <div class="gallery-slide"><div class="gal-box gal-2" onclick="openLightbox(1)"><div class="gal-overlay"></div><span class="gal-icon">💍</span></div></div>
+        <div class="gallery-slide"><div class="gal-box gal-3" onclick="openLightbox(2)"><div class="gal-overlay"></div><span class="gal-icon">🌸</span></div></div>
+        <div class="gallery-slide"><div class="gal-box gal-4" onclick="openLightbox(3)"><div class="gal-overlay"></div><span class="gal-icon">🎊</span></div></div>
+        <div class="gallery-slide"><div class="gal-box gal-5" onclick="openLightbox(4)"><div class="gal-overlay"></div><span class="gal-icon">✨</span></div></div>
+        <div class="gallery-slide"><div class="gal-box gal-1" onclick="openLightbox(5)"><div class="gal-overlay"></div><span class="gal-icon">🌹</span></div></div>
+      </div>
+    </div>
+    <div class="slider-controls">
+      <button class="slider-btn" id="prevBtn" onclick="slideGallery(-1)">&#8592;</button>
+      <div class="slider-dots" id="sliderDots"></div>
+      <button class="slider-btn" id="nextBtn" onclick="slideGallery(1)">&#8594;</button>
+    </div>
   </div>
-  <div style="margin-top:32px"><a href="#contact" class="btn-outline" style="display:inline-block">Lihat Semua Portofolio</a></div>
+  <div style="margin-top:32px"><a href="#contact" class="btn-outline reveal" style="display:inline-block">Konsultasi Sekarang</a></div>
 </section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightboxOutside(event)">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" onclick="closeLightbox()">&#215;</button>
+    <button class="lightbox-nav lightbox-prev" onclick="navLightbox(-1)">&#8592;</button>
+    <div class="lightbox-img" id="lightboxImg"></div>
+    <button class="lightbox-nav lightbox-next" onclick="navLightbox(1)">&#8594;</button>
+    <div class="lightbox-caption" id="lightboxCaption"></div>
+  </div>
+</div>
 
 <!-- TESTIMONIALS -->
 <section id="testimonials">
-  <p class="section-tag">Testimoni</p>
-  <h2 class="section-title">Kata Mereka tentang <em>Nikah Yukk</em></h2>
-  <div class="section-line"></div>
+  <p class="section-tag reveal">Testimoni</p>
+  <h2 class="section-title reveal">Kata Mereka tentang <em>Nikah Yukk</em></h2>
+  <div class="section-line reveal"></div>
   <div class="testi-grid">
-    <div class="testi-card">
+    <div class="testi-card reveal reveal-delay-1">
       <div class="testi-stars">★★★★★</div>
       <p class="testi-text">"Nikah Yukk luar biasa! Semua detail ditangani dengan sempurna. Hari pernikahan kami berjalan tanpa hambatan apapun. Sangat merekomendasikan!"</p>
       <div class="testi-author"><div class="testi-avatar">RA</div><div><div class="testi-name">Reza & Ayu</div><div class="testi-loc">Surabaya, 2024</div></div></div>
     </div>
-    <div class="testi-card">
+    <div class="testi-card reveal reveal-delay-2">
       <div class="testi-stars">★★★★★</div>
       <p class="testi-text">"Tim yang sangat profesional dan responsif. Dekorasinya indah banget, persis seperti yang kami impikan. Terima kasih Nikah Yukk!"</p>
       <div class="testi-author"><div class="testi-avatar">DF</div><div><div class="testi-name">Dimas & Fitri</div><div class="testi-loc">Sidoarjo, 2024</div></div></div>
     </div>
-    <div class="testi-card">
+    <div class="testi-card reveal reveal-delay-3">
       <div class="testi-stars">★★★★★</div>
       <p class="testi-text">"Worth every penny! Paket Grand benar-benar all-in. Kami tidak perlu pusing mikirin apapun, semuanya sudah diurus oleh tim Nikah Yukk."</p>
       <div class="testi-author"><div class="testi-avatar">BP</div><div><div class="testi-name">Bayu & Putri</div><div class="testi-loc">Gresik, 2023</div></div></div>
@@ -581,16 +670,13 @@
     html.setAttribute('data-theme', isDark ? 'light' : 'dark');
     localStorage.setItem('theme', isDark ? 'light' : 'dark');
   }
-  // Load saved theme
   const saved = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
   document.documentElement.setAttribute('data-theme', saved);
 
   // MOBILE MENU
   function toggleMenu() {
-    const menu = document.getElementById('mobileMenu');
-    const burger = document.getElementById('hamburger');
-    menu.classList.toggle('open');
-    burger.classList.toggle('open');
+    document.getElementById('mobileMenu').classList.toggle('open');
+    document.getElementById('hamburger').classList.toggle('open');
   }
   function closeMenu() {
     document.getElementById('mobileMenu').classList.remove('open');
@@ -613,6 +699,122 @@
       const t = document.querySelector(this.getAttribute('href'));
       if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
+  });
+
+  // SCROLL REVEAL ANIMATION
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => {
+    revealObserver.observe(el);
+  });
+
+  // GALLERY SLIDER
+  const slides = document.querySelectorAll('.gallery-slide');
+  const track = document.getElementById('galleryTrack');
+  const dotsContainer = document.getElementById('sliderDots');
+  let currentSlide = 0;
+  let slidesPerView = window.innerWidth <= 768 ? 1 : 3;
+  let totalGroups = Math.ceil(slides.length / slidesPerView);
+  let autoplayTimer;
+
+  function buildDots() {
+    dotsContainer.innerHTML = '';
+    for (let i = 0; i < totalGroups; i++) {
+      const dot = document.createElement('button');
+      dot.className = 'slider-dot' + (i === 0 ? ' active' : '');
+      dot.onclick = () => goToSlide(i);
+      dotsContainer.appendChild(dot);
+    }
+  }
+
+  function updateSlider() {
+    const slideWidth = slides[0].offsetWidth + 12;
+    track.style.transform = `translateX(-${currentSlide * slidesPerView * slideWidth}px)`;
+    document.querySelectorAll('.slider-dot').forEach((d, i) => {
+      d.classList.toggle('active', i === currentSlide);
+    });
+  }
+
+  function goToSlide(index) {
+    currentSlide = Math.max(0, Math.min(index, totalGroups - 1));
+    updateSlider();
+    resetAutoplay();
+  }
+
+  function slideGallery(dir) {
+    currentSlide = (currentSlide + dir + totalGroups) % totalGroups;
+    updateSlider();
+    resetAutoplay();
+  }
+
+  function resetAutoplay() {
+    clearInterval(autoplayTimer);
+    autoplayTimer = setInterval(() => slideGallery(1), 4000);
+  }
+
+  window.addEventListener('resize', () => {
+    slidesPerView = window.innerWidth <= 768 ? 1 : 3;
+    totalGroups = Math.ceil(slides.length / slidesPerView);
+    currentSlide = 0;
+    buildDots();
+    updateSlider();
+  });
+
+  buildDots();
+  updateSlider();
+  resetAutoplay();
+
+  // LIGHTBOX
+  const galleryData = [
+    { bg: 'gal-1', icon: '💒', caption: 'Resepsi Pernikahan — Surabaya 2024' },
+    { bg: 'gal-2', icon: '💍', caption: 'Intimate Wedding — Sidoarjo 2024' },
+    { bg: 'gal-3', icon: '🌸', caption: 'Garden Wedding — Gresik 2024' },
+    { bg: 'gal-4', icon: '🎊', caption: 'Grand Ballroom — Surabaya 2023' },
+    { bg: 'gal-5', icon: '✨', caption: 'Outdoor Wedding — Malang 2023' },
+    { bg: 'gal-1', icon: '🌹', caption: 'Intimate Ceremony — Surabaya 2023' },
+  ];
+  let lightboxIndex = 0;
+
+  function openLightbox(idx) {
+    lightboxIndex = idx;
+    renderLightbox();
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function closeLightboxOutside(e) {
+    if (e.target.id === 'lightbox') closeLightbox();
+  }
+
+  function navLightbox(dir) {
+    lightboxIndex = (lightboxIndex + dir + galleryData.length) % galleryData.length;
+    renderLightbox();
+  }
+
+  function renderLightbox() {
+    const d = galleryData[lightboxIndex];
+    document.getElementById('lightboxImg').className = 'lightbox-img ' + d.bg;
+    document.getElementById('lightboxImg').innerHTML = `<span style="font-size:80px;opacity:0.3">${d.icon}</span>`;
+    document.getElementById('lightboxCaption').textContent = d.caption;
+  }
+
+  document.addEventListener('keydown', e => {
+    if (document.getElementById('lightbox').classList.contains('open')) {
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') navLightbox(-1);
+      if (e.key === 'ArrowRight') navLightbox(1);
+    }
   });
 </script>
 </body>
