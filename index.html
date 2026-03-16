@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id" data-theme="light">
+<html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +9,6 @@
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  /* LIGHT MODE */
   :root {
     --bg: #FDF6F8;
     --bg2: #FFFFFF;
@@ -30,29 +29,8 @@
     --shadow: rgba(196,116,138,0.12);
   }
 
-  /* DARK MODE */
-  [data-theme="dark"] {
-    --bg: #1A0F13;
-    --bg2: #241318;
-    --bg3: #1F1215;
-    --primary: #E8A0B0;
-    --primary-dark: #C47888;
-    --primary-light: #8B4A5A;
-    --primary-pale: #2D1820;
-    --dark: #F5E8EC;
-    --mid: #D4B0B8;
-    --light-text: #9A7880;
-    --white: #F5E8EC;
-    --border: rgba(232,160,176,0.2);
-    --border-strong: rgba(232,160,176,0.4);
-    --card-bg: #241318;
-    --nav-bg: rgba(26,15,19,0.95);
-    --dark-section: #0F080A;
-    --shadow: rgba(0,0,0,0.3);
-  }
-
   html { scroll-behavior: smooth; }
-  body { font-family: 'Jost', sans-serif; background: var(--bg); color: var(--dark); overflow-x: hidden; transition: background .3s, color .3s; }
+  body { font-family: 'Jost', sans-serif; background: var(--bg); color: var(--dark); overflow-x: hidden; }
 
   /* NAV */
   nav {
@@ -61,9 +39,8 @@
     padding: 16px 48px;
     background: var(--nav-bg); backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
-    transition: background .3s;
   }
-  .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; letter-spacing: 1px; color: var(--dark); text-decoration: none; transition: color .3s; }
+  .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; letter-spacing: 1px; color: var(--dark); text-decoration: none; }
   .nav-logo span { color: var(--primary); }
   .nav-links { display: flex; gap: 28px; list-style: none; }
   .nav-links a { font-size: 13px; font-weight: 400; letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none; color: var(--mid); transition: color .2s; }
@@ -71,30 +48,6 @@
   .nav-right { display: flex; align-items: center; gap: 12px; }
   .nav-cta { font-size: 12px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none; color: var(--white); background: var(--primary); padding: 10px 22px; border-radius: 2px; transition: background .2s; }
   .nav-cta:hover { background: var(--primary-dark); }
-
-  /* DARK MODE TOGGLE */
-  .theme-toggle {
-    width: 56px; height: 28px; border-radius: 14px;
-    background: #FFD580; border: none; cursor: pointer;
-    position: relative; transition: background .4s; flex-shrink: 0;
-    display: flex; align-items: center; padding: 0 4px;
-  }
-  [data-theme="dark"] .theme-toggle { background: #3B3B6B; }
-  .theme-toggle::after {
-    content: ''; position: absolute; top: 4px; left: 4px;
-    width: 20px; height: 20px; border-radius: 50%;
-    background: #fff; transition: transform .4s cubic-bezier(.34,1.56,.64,1);
-    box-shadow: 0 1px 4px rgba(0,0,0,0.2);
-  }
-  [data-theme="dark"] .theme-toggle::after { transform: translateX(28px); background: #C8D0F0; }
-  .toggle-sun, .toggle-moon {
-    position: absolute; font-size: 13px; transition: opacity .3s;
-    pointer-events: none; line-height: 1;
-  }
-  .toggle-sun { left: 6px; opacity: 1; }
-  .toggle-moon { right: 6px; opacity: 0.4; }
-  [data-theme="dark"] .toggle-sun { opacity: 0.4; }
-  [data-theme="dark"] .toggle-moon { opacity: 1; }
 
   /* HAMBURGER */
   .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
@@ -392,10 +345,6 @@
     <li><a href="#testimonials">Testimoni</a></li>
   </ul>
   <div class="nav-right">
-    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
-      <span class="toggle-sun">☀️</span>
-      <span class="toggle-moon">🌙</span>
-    </button>
     <a href="#contact" class="nav-cta">Konsultasi Gratis</a>
     <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -696,16 +645,6 @@
 </footer>
 
 <script>
-  // DARK MODE
-  function toggleTheme() {
-    const html = document.documentElement;
-    const isDark = html.getAttribute('data-theme') === 'dark';
-    html.setAttribute('data-theme', isDark ? 'light' : 'dark');
-    localStorage.setItem('theme', isDark ? 'light' : 'dark');
-  }
-  const saved = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-  document.documentElement.setAttribute('data-theme', saved);
-
   // MOBILE MENU
   function toggleMenu() {
     document.getElementById('mobileMenu').classList.toggle('open');
